@@ -2,7 +2,7 @@
 Categories=Network;
 Exec=Mosaic
 GenericName=NCSA Mosaic Web Browser
-Icon=mosaic64
+Icon=mosaic
 Name=Mosaic
 StartupNotify=true
 Type=Application
