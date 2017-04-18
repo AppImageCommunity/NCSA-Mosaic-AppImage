@@ -9,7 +9,10 @@ install:
 script:
   - make linux
   - mkdir -p appdir/usr/bin
+  - mkdir -p appdir/usr/share/{applications,pixmaps}
   - cp src/Mosaic appdir/usr/bin
+  - cp mosaic.desktop appdir/usr/share/applications/
+  - convert src/bitmaps/xmosaic.xbm appdir/usr/share/pixmaps/mosaic.png
 
 after_success:
   - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" 
