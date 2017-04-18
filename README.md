@@ -1,4 +1,4 @@
-NCSA Mosaic
+NCSA Mosaic [![Build Status](https://travis-ci.org/probonopd/ncsa-mosaic.svg?branch=master)](https://travis-ci.org/probonopd/ncsa-mosaic)
 ===========
 
 ![GitHub viewed with Mosaic](http://github.com/downloads/alandipert/ncsa-mosaic/github.png "GitHub with Mosaic")

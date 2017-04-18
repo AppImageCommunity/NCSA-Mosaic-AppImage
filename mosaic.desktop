@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Network;
+Exec=Mosaic
+GenericName=NCSA Mosaic Web Browser
+Icon=mosaic
+Name=NCSA Mosaic
+StartupNotify=true
+Type=Application

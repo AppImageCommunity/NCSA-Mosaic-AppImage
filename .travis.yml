@@ -1,0 +1,24 @@
+language: cpp
+compiler: gcc
+sudo: require
+dist: trusty
+    
+install: 
+    - sudo apt-get -y install libmotif-dev libjpeg62-dev libpng12-dev x11proto-print-dev libxmu-headers libxpm-dev libxmu-dev
+
+script:
+  - make linux
+  - mkdir -p appdir/usr/bin
+  - mkdir -p appdir/usr/share/{applications,pixmaps}
+  - cp src/Mosaic appdir/usr/bin
+  - cp mosaic.desktop appdir/usr/share/applications/
+  - convert src/bitmaps/xmosaic.xbm appdir/usr/share/pixmaps/mosaic.png
+
+after_success:
+  - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" 
+  - chmod a+x linuxdeployqt*.AppImage
+  - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
+  - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
+  - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage
+  - find ./appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
+  - curl --upload-file ./N*.AppImage https://transfer.sh/NCSA_Mosaic-git.$(git rev-parse --short HEAD)-x86_64.AppImage
