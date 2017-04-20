@@ -6,3 +6,4 @@ Icon=mosaic
 Name=NCSA Mosaic
 StartupNotify=true
 Type=Application
+StartupWMClass=Mosaic
