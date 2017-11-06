@@ -4,7 +4,7 @@ sudo: require
 dist: trusty
     
 install: 
-    - sudo apt-get -y install libmotif-dev libjpeg62-dev libpng12-dev x11proto-print-dev libxmu-headers libxpm-dev libxmu-dev zsync
+    - sudo apt-get -y install libmotif-dev libjpeg62-dev libpng12-dev x11proto-print-dev libxmu-headers libxpm-dev libxmu-dev
 
 script:
   - make linux
